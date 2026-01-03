@@ -1,0 +1,22 @@
+<div>
+    <app-inoutcomp [message]="'from template form'"></app-inoutcomp>
+    <form #form="ngForm">
+        <input type="text" #name="ngModel" name="name" [(ngModel)]="formData.name" placeholder="Name" required minlength="2"/>
+        @if(name.errors?.['required'])  {
+            <span>this is required</span>
+        }
+        @else if(name.errors?.['minlength']) {
+            <span>minimum 2 characters</span>
+        }
+      
+        <input type="email" name="email" [(ngModel)]="formData.email" placeholder="Email" required />  
+        @if(name.touched||name.dirty) {
+            <span>valid</span>
+        }
+        <br>
+        <input type="text" name="password" [(ngModel)]="formData.password" placeholder="Phone" required />
+        <input type="text" name="confirmPassword" [(ngModel)]="formData.confirmPassword" placeholder="confirmPassword" required/>   
+       <button (click)="onSubmit()" [disabled]="form.invalid">submit</button>
+
+    </form>
+</div>

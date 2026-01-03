@@ -1,0 +1,23 @@
+<div>
+    <app-inoutcomp [message]="'fromreactform'" (clickme)="output()"></app-inoutcomp>
+    <form [formGroup]="getdata" Customdirective>
+        <input type="text" formControlName="name" placeholder="Name"  />
+        @if(getdata.controls['name'].touched && getdata.controls['name'].errors?.['required']) {
+             <span>this is required</span>
+        }
+        @else if(getdata.controls['name'].errors?.['minlength']) {
+             <span>this is min 2 char</span>
+        }
+       
+        <input type="text" formControlName="email" placeholder="email"  />
+        <input type="text" formControlName="password" placeholder="password"   />
+        <input type="text" formControlName="confirmPassword" placeholder="confirmPassword" />
+        <button 
+            type="submit"
+            [disabled]="getdata.invalid"
+            (click)="onSubmit()"
+        >
+            Submit  </button>
+
+    </form>
+</div>

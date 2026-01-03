@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>{{ name() }}</h2>
+
+  <button (click)="addemp()" [disabled]="isLoading">
+    {{ isLoading ? 'Adding...' : 'Add Employee' }}
+  </button>
+
+  <div *ngIf="isLoading" class="spinner"></div>
+</div>

@@ -1,0 +1,10 @@
+
+<select [(ngModel)]="selectedCity" (change)="onCityChange()"> >
+    <option *ngFor="let city of cityname" [value]="city">{{city}}</option>
+</select>
+
+
+
+<div [ngClass]="isclick?'color_act':'color_deact'">hiii ankit kumar how are you</div>
+
+<button (click)="isclick=!isclick">Click me</button>
